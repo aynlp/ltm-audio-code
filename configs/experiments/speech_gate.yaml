@@ -1,0 +1,16 @@
+memory:
+  reference_clips: 500
+  rank: 8
+  interpolation_weight: 0.7
+gate:
+  hidden_width: 256
+  epochs: 4
+  learning_rate: 0.001
+loss:
+  token_reconstruction_weight_candidates: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+  transcription_weight: 1.0
+selection:
+  development_examples: 100
+  training_examples: 80
+  selection_examples: 20
+  tie_break: smaller_token_reconstruction_weight

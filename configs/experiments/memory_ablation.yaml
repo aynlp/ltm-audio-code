@@ -1,0 +1,5 @@
+reference_clips_per_category: [20, 50, 100]
+calibration:
+  ranks: [8, 16, 32, 64, 128]
+  alphas: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+selection_rule: select_each_memory_size_on_validation_only

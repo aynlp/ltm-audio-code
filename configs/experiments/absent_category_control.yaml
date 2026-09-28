@@ -1,0 +1,70 @@
+# Analysis-only negative control. It must not be reported as target-perception accuracy.
+prompt: |-
+  What is the main sound in this audio?
+  Reply with a short sound description only.
+
+selection:
+  injected_category: piano music
+  # Exclude the full music family from target and every interferer. This makes a
+  # later shift toward "music" attributable to the injected LTM, not source audio.
+  excluded_categories:
+    - piano music
+    - flute music
+    - organ music
+    - classical guitar music
+    - violin music
+    - trumpet music
+    - clarinet music
+    - alto saxophone music
+    - concert drums
+  source_target_categories:
+    - alarm sound
+    - baby crying
+    - car horn
+    - cat meow
+    - cow moo
+    - crow call
+    - door slam
+    - frog croak
+    - glass shatter
+  # The allocation totals 100. It avoids silently including a music source
+  # when some classes lack enough valid four-source, fully non-music mixtures.
+  source_target_counts:
+    alarm sound: 12
+    baby crying: 11
+    car horn: 11
+    cat meow: 11
+    cow moo: 11
+    crow call: 11
+    door slam: 11
+    frog croak: 11
+    glass shatter: 11
+  evaluation_split: mixture_eval
+  expected_sample_rate: 16000
+  expected_samples: 48000
+
+# Change these mappings only when the new mixture manifest uses different keys.
+manifest_fields:
+  example_id: mixture_id
+  audio_path: mixture_audio
+  split: split
+  target_label: target_label
+  target_source_group: target_source_group_id
+  noise_labels: [noise_1_label, noise_2_label, noise_3_label]
+  noise_source_groups:
+    [noise_1_source_group_id, noise_2_source_group_id, noise_3_source_group_id]
+  sample_rate: sample_rate_hz
+  samples: samples
+  headroom_gain: common_peak_headroom_gain
+  target_rms: target_rms
+
+response_metrics:
+  # Reuse the same pre-specified free-form normalization used by the main
+  # classification readout. This is the primary endpoint.
+  aliases: ../prompts/free_form_aliases.yaml
+  injected_output_label: piano
+  # These surface-form metrics are secondary diagnostics only.
+  target_pattern: '\\bpiano\\b'
+  family_pattern: '\\b(?:piano|music|musical|melody|instrument(?:al)?)\\b'
+  bootstrap_samples: 10000
+  bootstrap_seed: 20260919

@@ -1,0 +1,16 @@
+memory:
+  reference_clips_per_category: 20
+  max_components: 128
+  solver: randomized
+calibration:
+  ranks: [8, 16, 32, 64, 128]
+  alphas: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+mixture:
+  sample_rate: 16000
+  duration_seconds: 3.0
+  interferers: 3
+  target_to_interference_db: -10.0
+readouts:
+  - constrained_classification
+  - free_form_classification
+  - prompt_free_retrieval
