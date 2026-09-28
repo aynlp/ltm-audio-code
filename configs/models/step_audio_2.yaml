@@ -1,0 +1,7 @@
+model_id: step-audio-2
+adapter_factory: external_adapters.step_audio_2:build_adapter
+token_interface: post_audio_adaptor
+freeze_language_backbone: true
+notes:
+  - Use continuous audio-adaptor outputs immediately before the language model.
+  - Construct a separate memory in this input embedding space.

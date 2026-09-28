@@ -1,0 +1,7 @@
+model_id: kimi-audio
+adapter_factory: external_adapters.kimi_audio:build_adapter
+token_interface: post_audio_adaptor
+freeze_language_backbone: true
+notes:
+  - Use the fused semantic-token and continuous-speech-feature sequence after its audio adaptor.
+  - Construct a separate memory in this input embedding space.

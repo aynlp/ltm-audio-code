@@ -1,0 +1,8 @@
+model_id: qwen2-audio
+adapter_factory: external_adapters.qwen2_audio:build_adapter
+token_interface: post_multimodal_projector
+freeze_language_backbone: true
+notes:
+  - Extract continuous audio tokens after the multimodal projector.
+  - Replace only audio placeholder embeddings before language-backbone decoding.
+  - Keep all text-token embeddings, token order, and audio-token count unchanged.
