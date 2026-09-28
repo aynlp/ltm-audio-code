@@ -1,0 +1,8 @@
+constrained: |-
+  Classify the main sound in this audio. Choose exactly one option.
+  Reply with only one capital letter from A to T.
+free_form: |-
+  What is the main sound in this audio? Reply with a short sound description only.
+speech_transcription: |-
+  The audio contains a person speaking English. Transcribe exactly what the person says.
+  Return only the transcription.

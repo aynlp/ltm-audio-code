@@ -1,0 +1,29 @@
+# Extend aliases locally only when a normalization rule has been specified before evaluation.
+piano: piano
+piano music: piano
+dog: dog_vocalization
+dog barking: dog_vocalization
+human speech: human_speech
+speech: human_speech
+flute: flute
+organ: organ
+classical guitar: classical_guitar
+guitar: classical_guitar
+violin: violin
+trumpet: trumpet
+clarinet: clarinet
+alto saxophone: alto_saxophone
+saxophone: alto_saxophone
+drums: drums
+cat: cat_meow
+cat meow: cat_meow
+cow: cow_moo
+cow moo: cow_moo
+frog: frog_croak
+crow: crow_call
+glass breaking: glass_breaking
+glass shattering: glass_breaking
+car horn: car_horn
+baby crying: baby_crying
+door slam: door_slam
+alarm: alarm
