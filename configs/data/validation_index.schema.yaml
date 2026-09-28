@@ -1,0 +1,15 @@
+# JSONL schema for paired mixed/clean validation token arrays.
+required_fields:
+  category: string
+  source_group: split/source-group identifier
+  mixed_tokens_path: relative path to a float [time, dimension] .npy array
+  clean_tokens_path: relative path to the aligned clean target token array
+constraints:
+  - Mixed and clean arrays must have identical [time, dimension] shapes.
+  - Use this split only for rank and interpolation-weight selection.
+  - Do not use final evaluation examples here.
+example:
+  category: piano
+  source_group: validation_group_a
+  mixed_tokens_path: tokens/validation/piano/mixed_000.npy
+  clean_tokens_path: tokens/validation/piano/clean_000.npy

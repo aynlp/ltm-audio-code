@@ -1,0 +1,25 @@
+# Required mixture-manifest fields for the absent-category negative-control runner.
+# Field names are configurable in configs/experiments/absent_category_control.yaml.
+required_fields:
+  mixture_id: stable example identifier
+  mixture_audio: local path to a generated mixture
+  split: must equal the configured evaluation split
+  target_label: target category label
+  target_source_group_id: target source-group identifier
+  noise_1_label: first interferer category label
+  noise_2_label: second interferer category label
+  noise_3_label: third interferer category label
+  noise_1_source_group_id: first interferer source-group identifier
+  noise_2_source_group_id: second interferer source-group identifier
+  noise_3_source_group_id: third interferer source-group identifier
+  sample_rate_hz: expected to be 16000 in the default configuration
+  samples: expected to be 48000 in the default configuration
+optional_quality_fields:
+  common_peak_headroom_gain: higher values are preferred
+  target_rms: larger values break quality ties
+selection_rules:
+  - The injected category and all categories in its excluded family are absent from all four mixture components.
+  - Target and three interferers have distinct category labels and distinct source groups.
+  - Selection uses the exact per-category quotas in the experiment configuration.
+  - The default configuration selects 100 examples: 12 alarm mixtures and 11 mixtures for each of eight other non-music target categories.
+  - The source manifest, configuration, memory archive, and free-form alias mapping are fingerprinted before a run can resume.

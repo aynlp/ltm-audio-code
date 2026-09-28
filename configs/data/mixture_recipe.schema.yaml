@@ -1,0 +1,30 @@
+# JSONL schema consumed by scripts/build_mixtures.py.
+required_fields:
+  mixture_id: string
+  target_category: string
+  target_audio_path: relative audio path
+  target_source_group: source-group identifier
+  interferers:
+    - category: non-target category identifier
+      audio_path: relative audio path
+      source_group: distinct source-group identifier
+constraints:
+  - Use exactly three interferers for the main protocol.
+  - Target and all interferers must use distinct categories and source groups.
+  - Clips are converted to mono, 16 kHz, and three seconds before mixing.
+  - The default target-to-combined-interference ratio is -10 dB.
+example:
+  mixture_id: eval_000001
+  target_category: piano
+  target_audio_path: clean/piano/a.wav
+  target_source_group: group_a
+  interferers:
+    - category: flute
+      audio_path: clean/flute/b.wav
+      source_group: group_b
+    - category: alarm
+      audio_path: clean/alarm/c.wav
+      source_group: group_c
+    - category: crow_call
+      audio_path: clean/crow_call/d.wav
+      source_group: group_d

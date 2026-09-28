@@ -1,0 +1,13 @@
+# JSONL schema for clean-reference token arrays. No real paths are included.
+required_fields:
+  category: string
+  source_group: split/source-group identifier
+  tokens_path: relative path to a float [time, dimension] .npy array
+constraints:
+  - Build one memory independently for each model_id and category.
+  - Reference clips must be disjoint from validation, gallery, and final evaluation clips.
+  - All arrays for one model must have the same embedding dimension.
+example:
+  category: piano
+  source_group: reference_group_a
+  tokens_path: tokens/references/piano/example_000.npy

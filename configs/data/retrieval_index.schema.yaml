@@ -1,0 +1,14 @@
+# JSONL schema for gallery and query indices used by evaluate_retrieval.py.
+gallery_required_fields:
+  category: string
+  source_group: split/source-group identifier
+  tokens_path: relative path to a clean-gallery [time, dimension] .npy array
+query_required_fields:
+  example_id: string
+  category: string
+  source_group: split/source-group identifier
+  tokens_path: relative path to a mixture [time, dimension] .npy array
+constraints:
+  - The clean gallery must be distinct from the memory construction split.
+  - The query category is the user-specified listening target used to select a memory.
+  - Retrieval temporally averages each sequence and averages its five highest cosine similarities per category.
