@@ -1,0 +1,22 @@
+# Stable category identifiers used by all manifest templates and readouts.
+categories:
+  - piano
+  - dog_vocalization
+  - human_speech
+  - flute
+  - organ
+  - classical_guitar
+  - violin
+  - trumpet
+  - clarinet
+  - alto_saxophone
+  - drums
+  - cat_meow
+  - cow_moo
+  - frog_croak
+  - crow_call
+  - glass_breaking
+  - car_horn
+  - baby_crying
+  - door_slam
+  - alarm
